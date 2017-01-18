@@ -49,8 +49,18 @@ public class StepDefs extends CukesRunner {
                 driver.findElement(By.xpath("//span[text()='Careers']")).click();
                 break;
             }
+
+            case "CONTACT":{
+                driver.get("https://www.valtech.com/investors/contact-us/");
+                break;
+            }
         }
 
+    }
+
+    @When("^I should see (.*) count$")
+    public void offices(int offices) {
+        assert (driver.findElements(By.cssSelector(".office img")).size() == offices);
     }
 
     @When("^H1 should be (.*)$")
